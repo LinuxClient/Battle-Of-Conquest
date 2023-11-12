@@ -2,3 +2,5 @@
 fixed a bug making the game crash everytime you upgraded sword!
 11/12/2023 4:02PM
 added a feature that makes the dragon do +10 more damage per level won by the player!
+11/12/2023 5:47PM
+Buffed health potions due to a in balance leading to shorter games!

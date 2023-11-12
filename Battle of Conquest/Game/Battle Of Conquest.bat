@@ -1,8 +1,8 @@
 @echo off
 REM DO NOT EDIT ANY CODE AS YOU MAY BREAK THE GAME WITH ANY CHANGES
 REM If you want to make changes please make a copy of the original game
-Title: Battle of Conquest vbeta 0.1.0
-set localversion= vbeta 1.0
+Title: Battle of Conquest vbeta 1.0.1
+set localversion= vbeta 1.0.1
 color 0d
 echo %date%
 
@@ -181,10 +181,10 @@ goto store
 )
 :buyheal
 cls
-set /a money=%money%-30
+set /a money=%money%-500
 if %money% LSS 0 (
 echo You cant buy that!
-set /a money=%money%+30
+set /a money=%money%+500
 pause
 goto store
 )else (
@@ -200,7 +200,7 @@ echo Sorry. You dont have any potions.
 pause
 goto start
 )else (
-set /a health=%health%+15
+set /a health=%health%+50
 set /a potions=%potions%-1
 echo You have used one potion
 pause
