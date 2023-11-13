@@ -1,8 +1,8 @@
 @echo off
 REM DO NOT EDIT ANY CODE AS YOU MAY BREAK THE GAME WITH ANY CHANGES
 REM If you want to make changes please make a copy of the original game
-Title: Battle of Conquest vbeta 1.0.1
-set localversion= vbeta 1.0.1
+Title: Battle of Conquest vbeta 0.1.1
+set localversion= vbeta 1.1
 color 0d
 echo %date%
 
@@ -49,6 +49,7 @@ cls
 echo Money:%money%
 echo Health:%health%
 echo Number of healing potions:%potions%
+echo Number of mega healing potions:%mega%
 echo Choose the number:
 echo -----------------------------------------------------
 echo                Welcome to Battle Of Conqest
@@ -151,10 +152,12 @@ echo Money:%money%
 echo Welcome to the store!
 echo ========================
 echo        In-Game Store
-echo ========================
-echo 1. Buy Sword
+echo ==========================
+echo 1. Buy +5 Attack Bonus
 echo 2. Buy Health Potion
-echo 3. Exit
+echo 3. Buy +10 Attack Bonus
+echo 4. Buy +20 Attack Bonus
+echo __________________________
 set /p again=
 if %again%==1 (
 goto buysword
@@ -163,28 +166,77 @@ if %again%==2 (
 goto buyheal
 )
 if %again%==3 (
-goto start
-)else goto store
-:buysword
+goto ten
+)
+if %again%==4 (
+goto twenty
+)
+if %again%==5 (
+goto mega
+)
+:twenty
 cls
-set /a money=%money%-700
+set /a money=%money%-2000
 if %money% LSS 0 (
 echo You cant buy that!
-set /a money=%money%+700
+set /a money=%money%+2000
 pause
 goto start
 )else (
-set /a damage=%damage%+4
-echo You have upgraded your sword
+set /a damage=%damage%+20
+echo You Upgraded your sword with Extreme Skills!
+pause
+goto start
+goto store
+)
+:ten
+cls
+set /a money=%money%-1000
+if %money% LSS 0 (
+echo You cant buy that!
+set /a money=%money%+1000
+pause
+goto start
+)else (
+set /a damage=%damage%+10
+echo You Upgraded your sword with Extreme Skills!
 pause
 goto store
 )
-:buyheal
+:buysword
 cls
 set /a money=%money%-500
 if %money% LSS 0 (
 echo You cant buy that!
 set /a money=%money%+500
+pause
+goto start
+)else (
+set /a damage=%damage%+5
+echo You have upgraded your sword
+pause
+goto store
+)
+:mega
+cls
+set /a money=%money%-2000
+if %money% LSS 0 (
+echo You cant buy that!
+set /a money=%money%+30
+pause
+goto store
+)else (
+set /a potions=%mega%+1
+echo You have bought one mega heal potion
+pause
+goto start
+)
+:buyheal
+cls
+set /a money=%money%-30
+if %money% LSS 0 (
+echo You cant buy that!
+set /a money=%money%+30
 pause
 goto store
 )else (
@@ -200,7 +252,7 @@ echo Sorry. You dont have any potions.
 pause
 goto start
 )else (
-set /a health=%health%+50
+set /a health=%health%+15
 set /a potions=%potions%-1
 echo You have used one potion
 pause
