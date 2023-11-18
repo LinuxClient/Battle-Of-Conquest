@@ -1,7 +1,7 @@
 @echo off
 REM DO NOT EDIT ANY CODE AS YOU MAY BREAK THE GAME WITH ANY CHANGES
 REM If you want to make changes please make a copy of the original game
-Title: Battle of Conquest vbeta 0.1.0
+Title: Battle of Conquest vbeta 1.2.1
 set localversion= vbeta 1.2.1
 set localdev= Linux Services
 color 0d
